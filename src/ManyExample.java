@@ -6,7 +6,7 @@ public class ManyExample { // Независят друг от друга
         IO.println("Make example 2");
         example2(); // Вызов метода example2
 
-        twoBandits();
+//        twoBandits();
     }
 
     static void example2(){
