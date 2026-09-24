@@ -10,9 +10,9 @@
 */
 
 
-public class Seminar1Task92 {
-        public static void main(String[] args) {
-
-            }
-        }
-    }
+//public class Seminar1Task92 {
+//        public static void main(String[] args) {
+//
+//            }
+//        }
+//    }
