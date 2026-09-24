@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Seminar2 {
+public class Lecture2 {
     public static void main(){
         //CalcRectangle();
         //CalcTriangle();
@@ -41,6 +41,5 @@ public class Seminar2 {
         else
             System.out.println("Сторона не моет быть отрицательной");
     }
-
 
 }
