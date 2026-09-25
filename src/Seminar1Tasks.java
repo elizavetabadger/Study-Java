@@ -6,7 +6,7 @@ public class Seminar1Tasks {
 //        twoBandits();
 //        busExcursions2();
 //        paperCrane();
-        solitaireShapoklyak();
+//        solitaireShapoklyak();
     }
 
     private static void twoBandits() {
@@ -63,34 +63,36 @@ public class Seminar1Tasks {
 
     }
 
-    private  static void solitaireShapoklyak(){
-        // https://acmp.ru/index.asp?main=task&id_task=521
-        System.out.println("Введите количество карт в первой колоде: ");
-        Scanner sc = new Scanner(System.in);
-        int cardsMin = sc.nextInt();
-        System.out.println("Введите количество карт в последней колоде: ");
-        int cardsMax = sc.nextInt();
-        int amount = 0;
+   private  static void solitaireShapoklyak() {
+       // https://acmp.ru/index.asp?main=task&id_task=521
+       System.out.println("Введите количество карт в первой колоде: ");
+       Scanner sc = new Scanner(System.in);
+       int cardsMin = sc.nextInt();
+       System.out.println("Введите количество карт в последней колоде: ");
+       int cardsMax = sc.nextInt();
+       int amount = 0;
 
-        for (int i = cardsMin; i <= cardsMax; i++){
+       if (cardsMin >= 2) {
+           for (int i = cardsMin; i <= cardsMax; i++) {
+               int cardsDeck = i;
+               int takesDeck = 0;
 
-            while (j % 2 == 0){
-                amount = j + 1;
-
-                int cards = i/2;
-
-                amount = i + 1;
-
-            }
-            if(cardsMax % 2 != 0){
-               int cards = i*3+1;
-            }
-
-            else
-                System.out.println("Пасьянс не сошёлся");
-
-        }
-        System.out.println("Шапокляк брала карты "+ amount + " раз");
-
-    }
+               while (cardsDeck != 2) {
+                   takesDeck++;
+                   //amount = amount + takesDeck;
+                   if (cardsDeck % 2 == 0) {
+                       cardsDeck = cardsDeck / 2;
+                   } else if (cardsDeck % 2 != 0) {
+                       cardsDeck = cardsDeck * 3 + 1;
+                   }
+               }
+               //takesDeck++;
+               amount = amount + takesDeck;
+           }
+           System.out.println("Шапокляк брала карты " + amount + " раз");
+       }
+       else {
+           System.out.println("Пасьянс не сошёлся");
+       }
+   }
 }
