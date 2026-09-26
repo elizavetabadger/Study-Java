@@ -1,10 +1,12 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class tasksHome {
 
     public  static void main(){
- //       flovers();
+//        flovers();
 //        conditioner();
+        kayaking();
 
     }
 
@@ -60,5 +62,33 @@ public class tasksHome {
         } else {
             System.out.println("Температура через 1 час: "+tCond);
         }
+    }
+
+    private  static  void kayaking(){
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("Компания из скольки человек? ");
+        int N = sc.nextInt();
+        if (1 > N || N > 15000){
+            System.out.println("Не может такого быть");
+        } else {
+            System.out.println("Грузоподъемность всех каяков: ");
+        }
+
+        int D = sc.nextInt();
+        if (1 > D || D > 15000){
+            System.out.println("Не может такого быть");
+        } else {
+            System.out.println("Вес каждого человека: ");
+        }
+
+        var people = new ArrayList<Integer>(N);
+        System.out.println(people.size());
+
+        for (int i = 1; i <= N; i++){
+            int ves = sc.nextInt();
+            people.add(ves);
+        }
+        System.out.println("Список: " + people);
     }
 }
