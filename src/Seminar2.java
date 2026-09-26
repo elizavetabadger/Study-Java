@@ -9,7 +9,7 @@ public class Seminar2 {
 //        varConst();
 //        var3();
 //        exercise2();
-        flowersVar1();
+//        flowersVar1();
     }
 
     private  static void exercise1(){
