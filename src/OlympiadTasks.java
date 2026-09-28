@@ -9,6 +9,7 @@ public class OlympiadTasks {
 //        paperCrane();
 //        solitaireShapoklyak();
 //        flovers();
+//        flovers2();
 //        conditioner();
 //        kayaking();
 
@@ -83,14 +84,13 @@ public class OlympiadTasks {
 
                 while (cardsDeck != 2) {
                     takesDeck++;
-                    //amount = amount + takesDeck;
+
                     if (cardsDeck % 2 == 0) {
                         cardsDeck = cardsDeck / 2;
                     } else if (cardsDeck % 2 != 0) {
                         cardsDeck = cardsDeck * 3 + 1;
                     }
                 }
-                //takesDeck++;
                 amount = amount + takesDeck;
             }
             System.out.println("Шапокляк брала карты " + amount + " раз");
@@ -100,13 +100,14 @@ public class OlympiadTasks {
         }
     }
 
-    private static void flovers(){
+    private static void flovers() {
         // https://acmp.ru/index.asp?main=task&id_task=504
         int k = Integer.parseInt(IO.readln("Сколько дней? "));
 //        Начальное состояние GCV
         String left = "G", center = "C", right = "V";
 //                Повторить k раз:
-        for (int i = 0; i < k; i++){
+        int i;
+        for (i = 0; i < k; i++) {
             // Маша делает перестанову
             String taburet = right;
             right = center;
@@ -116,7 +117,38 @@ public class OlympiadTasks {
             left = center;
             center = taburet;
         }
-        IO.println(left + center +right);
+        IO.println((i + 1) + ": " + left + center + right);
+    }
+
+    public static void flovers2() {
+
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Порядок цветов на какой вечер какого по счету дня вы хотите узнать");
+        System.out.println("Введите целое положительно цисло");
+
+        int chislo = 0;
+        int result = 0;
+        int rasnost = 0;
+
+        String flowerName0 = "Герань";
+
+        String flowerName1 = "Кактус";
+        String flowerName2 = "Фиалка";
+
+        do
+        chislo = scanner.nextInt();
+
+        while (chislo <= 0);
+        result = chislo/3;
+        rasnost = chislo - result*3; // можно записать одним оператором и убрать переменную result - int rasnost = chislo % 3
+
+        if (rasnost == 0)
+            System.out.println("Порядок цвтков " + (flowerName0 + flowerName1 + flowerName2));
+        else
+        if (rasnost == 1)
+            System.out.println("Порядок цвтков " + (flowerName2 + flowerName0 + flowerName1));
+        else
+            System.out.println("Порядок цвтков " + (flowerName1 + flowerName2 + flowerName0));
     }
 
     private static void conditioner(){
