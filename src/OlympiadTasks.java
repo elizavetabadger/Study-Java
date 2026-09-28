@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.Scanner;
 
@@ -12,7 +13,7 @@ public class OlympiadTasks {
 //        flovers();
 //        flovers2();
 //        conditioner();
-//        kayaking();
+        kayaking();
 
     }
 
@@ -190,47 +191,38 @@ public class OlympiadTasks {
         Scanner sc = new Scanner(System.in);
 
         System.out.println("Компания из скольки человек? ");
-        int N = sc.nextInt();
-        if (1 > N || N > 15000) {
+        int n = sc.nextInt();
+        if (1 > n || n > 15000) {
             System.out.println("Не может такого быть");
         } else {
             System.out.println("Грузоподъемность всех каяков: ");
         }
 
-        int D = sc.nextInt();
-        if (1 > D || D > 15000) {
+        int d = sc.nextInt();
+        if (1 > d || d > 15000) {
             System.out.println("Не может такого быть");
         } else {
             System.out.println("Вес каждого человека: ");
         }
 
-        var people = new ArrayList<Integer>(N);
-        for (int i = 1; i <= N; i++) {
-            int ves = sc.nextInt();
-            people.add(ves);
+        int[] peopleWeights = new int[n];
+        for (int i = 0; i < n; i++) {
+            peopleWeights[i] = sc.nextInt();
         }
-        System.out.println("Список: " + people);
-        int min = Collections.min(people);
-        int max = Collections.max(people);
+        Arrays.sort(peopleWeights); // Сортировка по возрастанию
         int countKayak = 0;
 
-        for (int i = 0; i < people.size(); i++) {
-            int numKayak = 0;
+        int minWeight = 0;
+        int maxWeight = peopleWeights.length - 1;
 
-            while (i != 1) {
-                numKayak++;
-
-                if ((min + max) < D) {
-                    people.remove(min);
-                    people.remove(max);
-                } else {
-                    people.remove(max);
-                }
+        while (minWeight <= maxWeight) {
+            if (minWeight < maxWeight && peopleWeights[minWeight] + peopleWeights[maxWeight] <= d) {
+                minWeight++;
             }
-            people.remove(i);
-            countKayak += numKayak;
+            maxWeight--;
+            countKayak++;
         }
 
-        System.out.println("Вам понадобится: " + countKayak + " байдарок.");
+        System.out.println("Байдарок понадобится: " + countKayak + " шт.");
     }
 }
