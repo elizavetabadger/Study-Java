@@ -1,9 +1,10 @@
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Scanner;
 
 public class OlympiadTasks {
 
-    public  static void main(){
+    public static void main() {
 //        twoBandits();
 //        busExcursions2();
 //        paperCrane();
@@ -14,6 +15,7 @@ public class OlympiadTasks {
 //        kayaking();
 
     }
+
     private static void twoBandits() {
         // https://acmp.ru/index.asp?main=task&id_task=33
 
@@ -42,7 +44,7 @@ public class OlympiadTasks {
         if (s < 6) {
             System.out.println("Введено неправильное число :(");
         } else
-            System.out.println(cranePeter+" " + craneKatya +" " + craneSerechga);
+            System.out.println(cranePeter + " " + craneKatya + " " + craneSerechga);
 
     }
 
@@ -68,7 +70,7 @@ public class OlympiadTasks {
 
     }
 
-    private  static void solitaireShapoklyak() {
+    private static void solitaireShapoklyak() {
         // https://acmp.ru/index.asp?main=task&id_task=521
         System.out.println("Введите количество карт в первой колоде: ");
         Scanner sc = new Scanner(System.in);
@@ -94,8 +96,7 @@ public class OlympiadTasks {
                 amount = amount + takesDeck;
             }
             System.out.println("Шапокляк брала карты " + amount + " раз");
-        }
-        else {
+        } else {
             System.out.println("Пасьянс не сошёлся");
         }
     }
@@ -136,34 +137,33 @@ public class OlympiadTasks {
         String flowerName2 = "Фиалка";
 
         do
-        chislo = scanner.nextInt();
+            chislo = scanner.nextInt();
 
         while (chislo <= 0);
-        result = chislo/3;
-        rasnost = chislo - result*3; // можно записать одним оператором и убрать переменную result - int rasnost = chislo % 3
+        result = chislo / 3;
+        rasnost = chislo - result * 3; // можно записать одним оператором и убрать переменную result - int rasnost = chislo % 3
 
         if (rasnost == 0)
             System.out.println("Порядок цвтков " + (flowerName0 + flowerName1 + flowerName2));
-        else
-        if (rasnost == 1)
+        else if (rasnost == 1)
             System.out.println("Порядок цвтков " + (flowerName2 + flowerName0 + flowerName1));
         else
             System.out.println("Порядок цвтков " + (flowerName1 + flowerName2 + flowerName0));
     }
 
-    private static void conditioner(){
+    private static void conditioner() {
 
         Scanner sc = new Scanner(System.in);
         System.out.println("Температура в комнате: ");
         int tRoom = sc.nextInt();
-        if (tRoom > 50 || tRoom < -50){
+        if (tRoom > 50 || tRoom < -50) {
             System.out.println("Неверные параметры температуры");
         } else {
             System.out.println("Желаемая температура: ");
         }
 
         int tCond = sc.nextInt();
-        if (tCond > 50 || tCond < -50){
+        if (tCond > 50 || tCond < -50) {
             System.out.println("Неверные параметры температуры");
         } else {
             System.out.println("Режим кондиционера: ");
@@ -171,46 +171,66 @@ public class OlympiadTasks {
         sc.nextLine(); // Очищаем буфер
         String tMode = sc.nextLine();
 
-        if (tMode.equals("fan")){
-            System.out.println("Температура через 1 час: "+tRoom);
-        } else if (tMode.equals("freeze") && tRoom > tCond){
-            System.out.println("Температура через 1 час: "+tCond);
-        } else if (tMode.equals("freeze") && tRoom < tCond){
-            System.out.println("Температура через 1 час: "+tRoom);
-        } else if (tMode.equals("heat") && tRoom < tCond){
-            System.out.println("Температура через 1 час: "+tRoom);
-        } else if (tMode.equals("heat") && tRoom > tCond){
-            System.out.println("Температура через 1 час: "+tCond);
+        if (tMode.equals("fan")) {
+            System.out.println("Температура через 1 час: " + tRoom);
+        } else if (tMode.equals("freeze") && tRoom > tCond) {
+            System.out.println("Температура через 1 час: " + tCond);
+        } else if (tMode.equals("freeze") && tRoom < tCond) {
+            System.out.println("Температура через 1 час: " + tRoom);
+        } else if (tMode.equals("heat") && tRoom < tCond) {
+            System.out.println("Температура через 1 час: " + tRoom);
+        } else if (tMode.equals("heat") && tRoom > tCond) {
+            System.out.println("Температура через 1 час: " + tCond);
         } else {
-            System.out.println("Температура через 1 час: "+tCond);
+            System.out.println("Температура через 1 час: " + tCond);
         }
     }
 
-    private  static  void kayaking(){
+    private static void kayaking() {
         Scanner sc = new Scanner(System.in);
 
         System.out.println("Компания из скольки человек? ");
         int N = sc.nextInt();
-        if (1 > N || N > 15000){
+        if (1 > N || N > 15000) {
             System.out.println("Не может такого быть");
         } else {
             System.out.println("Грузоподъемность всех каяков: ");
         }
 
         int D = sc.nextInt();
-        if (1 > D || D > 15000){
+        if (1 > D || D > 15000) {
             System.out.println("Не может такого быть");
         } else {
             System.out.println("Вес каждого человека: ");
         }
 
         var people = new ArrayList<Integer>(N);
-        for (int i = 1; i <= N; i++){
+        for (int i = 1; i <= N; i++) {
             int ves = sc.nextInt();
             people.add(ves);
         }
         System.out.println("Список: " + people);
+        int min = Collections.min(people);
+        int max = Collections.max(people);
+        int countKayak = 0;
 
-        for
+        for (int i = 0; i < people.size(); i++) {
+            int numKayak = 0;
+
+            while (i != 1) {
+                numKayak++;
+
+                if ((min + max) < D) {
+                    people.remove(min);
+                    people.remove(max);
+                } else {
+                    people.remove(max);
+                }
+            }
+            people.remove(i);
+            countKayak += numKayak;
+        }
+
+        System.out.println("Вам понадобится: " + countKayak + " байдарок.");
     }
 }
