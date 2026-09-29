@@ -1,7 +1,4 @@
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.Scanner;
+import java.util.*;
 
 public class OlympiadTasks {
 
@@ -13,7 +10,9 @@ public class OlympiadTasks {
 //        flovers();
 //        flovers2();
 //        conditioner();
-        kayaking();
+//        kayaking();
+//        robotK79();
+        twoCircles();
 
     }
 
@@ -225,4 +224,34 @@ public class OlympiadTasks {
 
         System.out.println("Байдарок понадобится: " + countKayak + " шт.");
     }
+
+    private  static void robotK79(){
+
+//        Scanner scanner = new Scanner(System.in);
+//        String program = scanner.nextLine();
+//        int x = 0, y = 0, direction = 0, steps = 0;
+//        int[] dx = {0, 1, 0, -1};
+//        int[] dy = {1, 0, -1, 0};
+//
+//        TreeSet<String> visit = new TreeSet<>(); // список посещенных клеток
+//        visit.add("0,0");
+
+    }
+
+    private static void twoCircles(){
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Введите координаты x,y,r 1-ой окружности: ");
+        int x1 = sc.nextInt(), y1 = sc.nextInt(), r1 = sc.nextInt();
+        System.out.println("Введите координаты x,y,r 2-ой окружности: ");
+        int x2 = sc.nextInt(), y2 = sc.nextInt(), r2 = sc.nextInt();
+        int d = (x2-x1)*(x2-x1) + (y2-y1)*(y2-y1);
+
+        if(d < (r2-r1)*(r2-r1) || d > (r1+r2)*(r1+r2)){
+            System.out.println("Окружности не пересекутся");
+        }
+        else {
+            System.out.println("Окружности пересекутся");
+        }
+    }
+
 }
