@@ -12,7 +12,7 @@ public class OlympiadTasks {
 //        conditioner();
 //        kayaking();
 //        robotK79();
-        twoCircles();
+//        twoCircles();
 
     }
 
@@ -124,32 +124,24 @@ public class OlympiadTasks {
     public static void flovers2() {
         // https://acmp.ru/index.asp?main=task&id_task=504
 
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Порядок цветов на какой вечер какого по счету дня вы хотите узнать");
-        System.out.println("Введите целое положительно цисло");
+        Scanner sc = new Scanner(System.in);
+        String flower1 = "G"; // Герань
+        String flower2 = "C"; // Кактус
+        String flower3 = "V"; // Фиалка
 
-        int chislo = 0;
-        int result = 0;
-        int rasnost = 0;
+        System.out.println("Через сколько дней проверим порядок цветов? ");
+        int nightCount = sc.nextInt();
+        if (nightCount < 0) {
+            System.out.println("Не прошло ни дня...");
+        }
+        int swap = nightCount % 3;
 
-        String flowerName0 = "Герань";
-
-        String flowerName1 = "Кактус";
-        String flowerName2 = "Фиалка";
-
-        do
-            chislo = scanner.nextInt();
-
-        while (chislo <= 0);
-        result = chislo / 3;
-        rasnost = chislo - result * 3; // можно записать одним оператором и убрать переменную result - int rasnost = chislo % 3
-
-        if (rasnost == 0)
-            System.out.println("Порядок цвтков " + (flowerName0 + flowerName1 + flowerName2));
-        else if (rasnost == 1)
-            System.out.println("Порядок цвтков " + (flowerName2 + flowerName0 + flowerName1));
+        if (swap == 0)
+            System.out.println(flower1 + flower2 + flower3);
+        else if (swap == 1)
+            System.out.println(flower3 + flower1 + flower2);
         else
-            System.out.println("Порядок цвтков " + (flowerName1 + flowerName2 + flowerName0));
+            System.out.println(flower2 + flower3 + flower1);
     }
 
     private static void conditioner() {
