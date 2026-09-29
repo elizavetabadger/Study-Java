@@ -253,4 +253,9 @@ public class OlympiadTasks {
         }
     }
 
+    private  static void boltAndNuts(){
+
+
+    }
+
 }
