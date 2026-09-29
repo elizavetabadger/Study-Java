@@ -122,6 +122,7 @@ public class OlympiadTasks {
     }
 
     public static void flovers2() {
+        // https://acmp.ru/index.asp?main=task&id_task=504
 
         Scanner scanner = new Scanner(System.in);
         System.out.println("Порядок цветов на какой вечер какого по счету дня вы хотите узнать");
@@ -152,6 +153,7 @@ public class OlympiadTasks {
     }
 
     private static void conditioner() {
+//        https://acmp.ru/index.asp?main=task&id_task=854
 
         Scanner sc = new Scanner(System.in);
         System.out.println("Температура в комнате: ");
@@ -187,6 +189,8 @@ public class OlympiadTasks {
     }
 
     private static void kayaking() {
+//        https://acmp.ru/index.asp?main=task&id_task=869
+
         Scanner sc = new Scanner(System.in);
 
         System.out.println("Компания из скольки человек? ");
@@ -226,6 +230,7 @@ public class OlympiadTasks {
     }
 
     private  static void robotK79(){
+//        https://acmp.ru/index.asp?main=task&id_task=235
 
 //        Scanner scanner = new Scanner(System.in);
 //        String program = scanner.nextLine();
@@ -239,18 +244,20 @@ public class OlympiadTasks {
     }
 
     private static void twoCircles(){
+//        https://acmp.ru/index.asp?main=task&id_task=26
+
         Scanner sc = new Scanner(System.in);
-        System.out.println("Введите координаты x,y,r 1-ой окружности: ");
+        System.out.println("Введите координаты x,y и радиус r 1-ой окружности: ");
         int x1 = sc.nextInt(), y1 = sc.nextInt(), r1 = sc.nextInt();
-        System.out.println("Введите координаты x,y,r 2-ой окружности: ");
+        System.out.println("Введите координаты x,y и радиус r 2-ой окружности: ");
         int x2 = sc.nextInt(), y2 = sc.nextInt(), r2 = sc.nextInt();
         int d = (x2-x1)*(x2-x1) + (y2-y1)*(y2-y1);
 
         if(d < (r2-r1)*(r2-r1) || d > (r1+r2)*(r1+r2)){
-            System.out.println("Окружности не пересекутся");
+            System.out.println("NO");
         }
         else {
-            System.out.println("Окружности пересекутся");
+            System.out.println("YES");
         }
     }
 
