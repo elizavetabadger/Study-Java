@@ -3,16 +3,7 @@ import java.util.*;
 public class OlympiadTasks {
 
     public static void main() {
-//        twoBandits();
-//        busExcursions2();
-//        paperCrane();
-//        solitaireShapoklyak();
-//        flovers();
-//        flovers2();
-//        conditioner();
-//        kayaking();
 //        robotK79();
-//        twoCircles();
 
     }
 
@@ -254,6 +245,30 @@ public class OlympiadTasks {
     }
 
     private  static void boltAndNuts(){
+//        https://acmp.ru/index.asp?main=task&id_task=294
+
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Введите целые числа k1, l1, m1: ");
+        int k1 = sc.nextInt(), l1 = sc.nextInt(), m1 = sc.nextInt();
+        int lostk1 = k1*l1/100;
+        int costLost1 = lostk1*m1;
+        int nowk1=k1-lostk1;
+
+        System.out.println("Введите целые числа k2, l2, m2: ");
+        int k2 = sc.nextInt(), l2 = sc.nextInt(), m2 = sc.nextInt();
+        int lostk2 = k2*l2/100;
+        int costLost2 = lostk2*m2;
+        int nowk2=k2-lostk2;
+
+        if (nowk1 > nowk2){
+            System.out.println("Размер ущерба составил: "+ ((nowk1-nowk2)*m1+costLost1+costLost2));
+        }
+        else {
+            System.out.println("Размер ущерба составил: "+ ((nowk2-nowk1)*m2+costLost2+costLost1));
+        }
+    }
+
+    private static void taxes(){
 
 
     }

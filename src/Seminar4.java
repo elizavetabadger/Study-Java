@@ -2,7 +2,7 @@ public class Seminar4 {
 
     public static void main() {
 //        task1();
-        matrix();
+//        matrix();
     }
 
     // Не запуская код определить, что выведет программа
