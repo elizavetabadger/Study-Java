@@ -1,6 +1,8 @@
+import java.util.Scanner;
+
 public class Rectangle {
 
-    double length, width;
+        double length, width;
 
     public Rectangle(double length, double width) {
         if (length > 0 && width > 0) {
