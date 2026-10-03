@@ -3,8 +3,8 @@ import java.util.*;
 public class OlympiadTasks {
 
     public static void main() {
-        robotK79();
 
+        dragons();
     }
 
     private static void twoBandits() {
@@ -373,5 +373,30 @@ public class OlympiadTasks {
             }
         }
         System.out.println(-1);
+    }
+
+    private static void dragons(){
+//        https://acmp.ru/index.asp?main=task&id_task=42
+
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Сколько голов в драконьей стае? ");
+        int n = sc.nextInt();
+        int maxPower;
+
+        if (n <= 3) {
+            maxPower = n;
+        } else {
+            int threes = n / 3;
+            int keep = n % 3;
+
+            if (keep == 0) {
+                maxPower = (int) Math.pow(3, threes);
+            } else if (keep == 1) {
+                maxPower = (int) Math.pow(3, threes - 1) * 4;
+            } else {
+                maxPower = (int) Math.pow(3, threes) * 2;
+            }
+        }
+        System.out.println(maxPower);
     }
 }
