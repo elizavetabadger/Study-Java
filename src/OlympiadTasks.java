@@ -4,7 +4,6 @@ public class OlympiadTasks {
 
     public static void main() {
 //        robotK79();
-        //taxes();
 
     }
 
@@ -281,29 +280,32 @@ public class OlympiadTasks {
         for (int i = 0; i < companyIncome.length; i++) {
             companyIncome[i] = sc.nextInt();
         }
-        System.out.println(Arrays.toString(companyIncome));
 
         int[] companyTaxes = new int[n];
         System.out.println("Введите процент налога фирм по порядку: ");
         for (int i = 0; i < companyTaxes.length; i++) {
             companyTaxes[i] = sc.nextInt();
         }
-        System.out.println(Arrays.toString(companyTaxes));
 
         double[] taxesArr = new double[n];
-        int company= 0;
+        int companyNum= 0;
         for (int i=0; i < taxesArr.length; i++){
             taxesArr[i] = companyIncome[i]*companyTaxes[i]*0.01;
         }
         System.out.println(Arrays.toString(taxesArr));
 
+        double taxesMax = taxesArr[0];
         for (int i=0; i < taxesArr.length; i++){
-            int taxes = 0;
-            if (taxesArr[i] > taxesArr[i++] ) {
-                taxes = i;
+            if (taxesArr[i] > taxesMax ) {
+                taxesMax = taxesArr[i];
+                companyNum = i;
             }
-            company = taxes+1;
         }
-        System.out.println("Наибольший доход приносит фирма "+company);
+        System.out.println("Наибольший доход приносит фирма " + (companyNum+1));
+    }
+
+    private  static void trafficLights(){
+
+
     }
 }
