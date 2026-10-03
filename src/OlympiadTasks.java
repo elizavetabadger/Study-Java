@@ -3,7 +3,8 @@ import java.util.*;
 public class OlympiadTasks {
 
     public static void main() {
-        deforestation();
+
+        alchemy1();
     }
 
     private static void twoBandits() {
@@ -211,7 +212,7 @@ public class OlympiadTasks {
         System.out.println("Байдарок понадобится: " + countKayak + " шт.");
     }
 
-    private static void twoCircles(){
+    private static void twoCircles() {
 //        https://acmp.ru/index.asp?main=task&id_task=26
 
         Scanner sc = new Scanner(System.in);
@@ -219,41 +220,39 @@ public class OlympiadTasks {
         int x1 = sc.nextInt(), y1 = sc.nextInt(), r1 = sc.nextInt();
         System.out.println("Введите координаты x,y и радиус r 2-ой окружности: ");
         int x2 = sc.nextInt(), y2 = sc.nextInt(), r2 = sc.nextInt();
-        int d = (x2-x1)*(x2-x1) + (y2-y1)*(y2-y1);
+        int d = (x2 - x1) * (x2 - x1) + (y2 - y1) * (y2 - y1);
 
-        if(d < (r2-r1)*(r2-r1) || d > (r1+r2)*(r1+r2)){
+        if (d < (r2 - r1) * (r2 - r1) || d > (r1 + r2) * (r1 + r2)) {
             System.out.println("NO");
-        }
-        else {
+        } else {
             System.out.println("YES");
         }
     }
 
-    private  static void boltAndNuts(){
+    private static void boltAndNuts() {
 //        https://acmp.ru/index.asp?main=task&id_task=294
 
         Scanner sc = new Scanner(System.in);
         System.out.println("Введите целые числа k1, l1, m1: ");
         int k1 = sc.nextInt(), l1 = sc.nextInt(), m1 = sc.nextInt();
-        int lostk1 = k1*l1/100;
-        int costLost1 = lostk1*m1;
-        int nowk1=k1-lostk1;
+        int lostk1 = k1 * l1 / 100;
+        int costLost1 = lostk1 * m1;
+        int nowk1 = k1 - lostk1;
 
         System.out.println("Введите целые числа k2, l2, m2: ");
         int k2 = sc.nextInt(), l2 = sc.nextInt(), m2 = sc.nextInt();
-        int lostk2 = k2*l2/100;
-        int costLost2 = lostk2*m2;
-        int nowk2=k2-lostk2;
+        int lostk2 = k2 * l2 / 100;
+        int costLost2 = lostk2 * m2;
+        int nowk2 = k2 - lostk2;
 
-        if (nowk1 > nowk2){
-            System.out.println("Размер ущерба составил: "+ ((nowk1-nowk2)*m1+costLost1+costLost2));
-        }
-        else {
-            System.out.println("Размер ущерба составил: "+ ((nowk2-nowk1)*m2+costLost2+costLost1));
+        if (nowk1 > nowk2) {
+            System.out.println("Размер ущерба составил: " + ((nowk1 - nowk2) * m1 + costLost1 + costLost2));
+        } else {
+            System.out.println("Размер ущерба составил: " + ((nowk2 - nowk1) * m2 + costLost2 + costLost1));
         }
     }
 
-    private static void taxes(){
+    private static void taxes() {
 //        https://acmp.ru/index.asp?main=task&id_task=293
 
         Scanner sc = new Scanner(System.in);
@@ -273,40 +272,40 @@ public class OlympiadTasks {
         }
 
         double[] taxesArr = new double[n];
-        int companyNum= 0;
-        for (int i=0; i < taxesArr.length; i++){
-            taxesArr[i] = companyIncome[i]*companyTaxes[i]*0.01;
+        int companyNum = 0;
+        for (int i = 0; i < taxesArr.length; i++) {
+            taxesArr[i] = companyIncome[i] * companyTaxes[i] * 0.01;
         }
         System.out.println(Arrays.toString(taxesArr));
 
         double taxesMax = taxesArr[0];
-        for (int i=0; i < taxesArr.length; i++){
-            if (taxesArr[i] > taxesMax ) {
+        for (int i = 0; i < taxesArr.length; i++) {
+            if (taxesArr[i] > taxesMax) {
                 taxesMax = taxesArr[i];
                 companyNum = i;
             }
         }
-        System.out.println("Наибольший доход приносит фирма " + (companyNum+1));
+        System.out.println("Наибольший доход приносит фирма " + (companyNum + 1));
     }
 
-    private  static void trafficLights(){
+    private static void trafficLights() {
 //        https://acmp.ru/index.asp?main=task&id_task=124
 
         Scanner sc = new Scanner(System.in);
         System.out.println("Введите N и M: ");
         int n = sc.nextInt(), m = sc.nextInt();
-        int [] resaltKnot = new int[n];
+        int[] resaltKnot = new int[n];
 
-        for (int i = 0; i < m; i++){
+        for (int i = 0; i < m; i++) {
             System.out.println("Введите тоннель: ");
             int x = sc.nextInt(), y = sc.nextInt();
-            resaltKnot[x-1]++;
-            resaltKnot[y-1]++;
+            resaltKnot[x - 1]++;
+            resaltKnot[y - 1]++;
         }
         System.out.println(Arrays.toString(resaltKnot));
     }
 
-    private static void hairBusiness (){
+    private static void hairBusiness() {
 //        https://acmp.ru/index.asp?main=task&id_task=39
 
         Scanner sc = new Scanner(System.in);
@@ -314,20 +313,20 @@ public class OlympiadTasks {
         int n = sc.nextInt();
 
         System.out.println("Введите стоимость см волос за каждый день: ");
-        int [] costDay = new int[n];
+        int[] costDay = new int[n];
         for (int i = 0; i < n; i++) {
             costDay[i] = sc.nextInt();
         }
 
-        int [] bestCost = new int[n];
+        int[] bestCost = new int[n];
         int sum = 0;
 
-        for (int day = 0; day < n; day++){
-            bestCost[day] = costDay[day]*(day+1); // ранеее не продавали
+        for (int day = 0; day < n; day++) {
+            bestCost[day] = costDay[day] * (day + 1); // ранеее не продавали
 
             for (int past = 0; past < day; past++) {
                 int hairLength = day - past;
-                int costNow = bestCost[past]+ hairLength* costDay[day];
+                int costNow = bestCost[past] + hairLength * costDay[day];
 
                 bestCost[day] = Math.max(bestCost[day], costNow);
             }
@@ -338,7 +337,7 @@ public class OlympiadTasks {
         System.out.println("Максимальная сумма: " + sum);
     }
 
-    private  static void robotK79(){
+    private static void robotK79() {
 //        https://acmp.ru/index.asp?main=task&id_task=235
 
         Scanner sc = new Scanner(System.in);
@@ -374,7 +373,7 @@ public class OlympiadTasks {
         System.out.println(-1);
     }
 
-    private static void dragons(){
+    private static void dragons() {
 //        https://acmp.ru/index.asp?main=task&id_task=42
 
         Scanner sc = new Scanner(System.in);
@@ -399,7 +398,7 @@ public class OlympiadTasks {
         System.out.println(maxPower);
     }
 
-    private static void deforestation(){
+    private static void deforestation() {
 
         Scanner sc = new Scanner(System.in);
         System.out.println("Введите n и m: ");
@@ -421,5 +420,72 @@ public class OlympiadTasks {
             }
         }
         System.out.println(ways);
+    }
+
+    private static void alchemy1() {
+//        https://acmp.ru/index.asp?main=task&id_task=743
+
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Введите m: ");
+        int m = sc.nextInt();
+        sc.nextLine(); // очищаем перед String
+
+        String[][] matr = new String[m][2];
+        System.out.println("Введите алхимические реакции: ");
+        for (int i = 0; i < m; i++) {
+            String reaction = sc.nextLine();
+            String[] parts = reaction.split(" -> ");
+
+            matr[i][0] = parts[0];
+            matr[i][1] = parts[1];
+        }
+
+        System.out.println("Введите исходное вещество: ");
+        String original = sc.nextLine();
+        System.out.println("Введите вещество, которое хотим получить: ");
+        String result = sc.nextLine();
+
+        String[] elements = new String[m + 1];
+        int[] steps = new int[m + 1];
+
+        elements[0] = original;
+        steps[0] = 0;
+
+        int count = 1;
+        int currentElement = 0;
+        int reactions = -1;
+
+        // Перебираем найденные вещества
+        while (currentElement < count) {
+            if (elements[currentElement].equals(result)) {
+                reactions = steps[currentElement];
+                break;
+            }
+
+            // Ищем реакции, которые подходят к текущему веществу
+            for (int i = 0; i < m; i++) {
+                if (matr[i][0].equals(elements[currentElement])) {
+                    String newElement = matr[i][1];
+                    boolean alreadyFound = false;
+
+                    // Проверяем, не находили ли это вещество раньше
+                    for (int j = 0; j < count; j++) {
+                        if (elements[j].equals(newElement)) {
+                            alreadyFound = true;
+                            break;
+                        }
+                    }
+
+                    if (!alreadyFound) {
+                        elements[count] = newElement;
+                        steps[count] = steps[currentElement] + 1;
+                        count++;
+                    }
+                }
+            }
+            currentElement++;
+        }
+
+        System.out.println(reactions);
     }
 }
