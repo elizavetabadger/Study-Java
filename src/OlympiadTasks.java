@@ -3,8 +3,7 @@ import java.util.*;
 public class OlympiadTasks {
 
     public static void main() {
-
-        dragons();
+        deforestation();
     }
 
     private static void twoBandits() {
@@ -398,5 +397,29 @@ public class OlympiadTasks {
             }
         }
         System.out.println(maxPower);
+    }
+
+    private static void deforestation(){
+
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Введите n и m: ");
+        int n = sc.nextInt(), m = sc.nextInt();
+
+        long ways;
+
+        if (m == 0) {
+            ways = 1;
+        } else if (m > n) {
+            ways = 0;
+        } else if (m == 1) {
+            ways = n;
+        } else {
+            ways = 0;
+
+            for (int d = 1; d <= (n - 1) / (m - 1); d++) {
+                ways += n - (m - 1) * d;
+            }
+        }
+        System.out.println(ways);
     }
 }
