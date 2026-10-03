@@ -4,9 +4,7 @@ public class OlympiadTasks {
 
     public static void main() {
 //        robotK79();
-
-        trafficLights();
-
+        hairBusiness();
     }
 
     private static void twoBandits() {
@@ -321,5 +319,37 @@ public class OlympiadTasks {
             resaltKnot[y-1]++;
         }
         System.out.println(Arrays.toString(resaltKnot));
+    }
+
+    private static void hairBusiness (){
+//        https://acmp.ru/index.asp?main=task&id_task=39
+
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Введите количество дней: ");
+        int n = sc.nextInt();
+
+        System.out.println("Введите стоимость см волос за каждый день: ");
+        int [] costDay = new int[n];
+        for (int i = 0; i < n; i++) {
+            costDay[i] = sc.nextInt();
+        }
+
+        int [] bestCost = new int[n];
+        int sum = 0;
+
+        for (int day = 0; day < n; day++){
+            bestCost[day] = costDay[day]*(day+1); // ранеее не продавали
+
+            for (int past = 0; past < day; past++) {
+                int hairLength = day - past;
+                int costNow = bestCost[past]+ hairLength* costDay[day];
+
+                bestCost[day] = Math.max(bestCost[day], costNow);
+            }
+            sum = Math.max(sum, bestCost[day]);
+        }
+        System.out.println(Arrays.toString(bestCost));
+
+        System.out.println("Максимальная сумма: " + sum);
     }
 }
