@@ -5,6 +5,8 @@ public class OlympiadTasks {
     public static void main() {
 //        robotK79();
 
+        trafficLights();
+
     }
 
     private static void twoBandits() {
@@ -305,7 +307,19 @@ public class OlympiadTasks {
     }
 
     private  static void trafficLights(){
+//        https://acmp.ru/index.asp?main=task&id_task=124
 
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Введите N и M: ");
+        int n = sc.nextInt(), m = sc.nextInt();
+        int [] resaltKnot = new int[n];
 
+        for (int i = 0; i < m; i++){
+            System.out.println("Введите тоннель: ");
+            int x = sc.nextInt(), y = sc.nextInt();
+            resaltKnot[x-1]++;
+            resaltKnot[y-1]++;
+        }
+        System.out.println(Arrays.toString(resaltKnot));
     }
 }
