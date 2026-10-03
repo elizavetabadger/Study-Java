@@ -3,8 +3,8 @@ import java.util.*;
 public class OlympiadTasks {
 
     public static void main() {
-//        robotK79();
-        hairBusiness();
+        robotK79();
+
     }
 
     private static void twoBandits() {
@@ -212,20 +212,6 @@ public class OlympiadTasks {
         System.out.println("Байдарок понадобится: " + countKayak + " шт.");
     }
 
-    private  static void robotK79(){
-//        https://acmp.ru/index.asp?main=task&id_task=235
-
-//        Scanner scanner = new Scanner(System.in);
-//        String program = scanner.nextLine();
-//        int x = 0, y = 0, direction = 0, steps = 0;
-//        int[] dx = {0, 1, 0, -1};
-//        int[] dy = {1, 0, -1, 0};
-//
-//        TreeSet<String> visit = new TreeSet<>(); // список посещенных клеток
-//        visit.add("0,0");
-
-    }
-
     private static void twoCircles(){
 //        https://acmp.ru/index.asp?main=task&id_task=26
 
@@ -351,5 +337,41 @@ public class OlympiadTasks {
         System.out.println(Arrays.toString(bestCost));
 
         System.out.println("Максимальная сумма: " + sum);
+    }
+
+    private  static void robotK79(){
+//        https://acmp.ru/index.asp?main=task&id_task=235
+
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Опишите программу для робота: ");
+        String program = sc.nextLine();
+
+        int x = 0, y = 0;
+        int direction = 0; // 0 — вверх, 1 — вправо, 2 — вниз, 3 — влево
+        int steps = 0;
+
+        Set<String> visited = new HashSet<>();
+        visited.add(x + "," + y);
+
+        for (char command : program.toCharArray()) {
+            if (command == 'L') {
+                direction = (direction + 3) % 4;
+            } else if (command == 'R') {
+                direction = (direction + 1) % 4;
+            } else {
+                if (direction == 0) y++;
+                else if (direction == 1) x++;
+                else if (direction == 2) y--;
+                else x--;
+
+                steps++;
+
+                if (!visited.add(x + "," + y)) {
+                    System.out.println(steps);
+                    return;
+                }
+            }
+        }
+        System.out.println(-1);
     }
 }
